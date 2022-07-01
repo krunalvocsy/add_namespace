@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
 export "FLUTTER_ROOT=/Users/vinodasodariya/Documents/flutter"
-export "FLUTTER_APPLICATION_PATH=/Users/vinodasodariya/Downloads/vocsy_esys_flutter_share-master/example"
+export "FLUTTER_APPLICATION_PATH=/Users/vinodasodariya/Desktop/vocsy/flutter/custom package/vocsy_esys_flutter_share/example"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_TARGET=lib/main.dart"
 export "FLUTTER_BUILD_DIR=build"

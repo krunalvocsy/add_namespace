@@ -35,7 +35,7 @@ Instead, if you have already a non-swift project, you can check this issue to so
 Import:
 
 ```dart
-import 'package:esys_flutter_share/esys_flutter_share.dart';
+import 'package:vocsy_esys_flutter_share/vocsy_esys_flutter_share.dart';
 ```
 
 Share text:
