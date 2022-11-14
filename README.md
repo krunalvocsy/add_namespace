@@ -30,6 +30,19 @@ end
 
 Instead, if you have already a non-swift project, you can check this issue to solve the problem: [Friction adding swift plugin to objective-c project](https://github.com/flutter/flutter/issues/16049).
 
+## Features
+
+| Name | Android | iOS |
+|------|-------|------|
+| Share Text | ✅ | ✅ |
+| Share Image with Text [Assets / Network] | ✅ | ✅ |
+| Share Multiple Images [Assets / Network] | ✅ | ✅ |
+| Share Multiple Images And CSV Files | ✅ | ✅ |
+| Share CSV Files | ✅ | ✅ |
+| Share Image From Url | ✅ | ✅ |
+
+
+
 ## Usage
 
 Import:

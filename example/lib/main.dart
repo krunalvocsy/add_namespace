@@ -1,17 +1,17 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:vocsy_esys_flutter_share/vocsy_esys_flutter_share.dart';
 
-void main() => runApp(MaterialApp(
-      home: MaterialApp(
+void main() => runApp(
+      MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: MyHomePage(),
       ),
-    ));
+    );
 
 class MyHomePage extends StatefulWidget {
   MyHomePage();
@@ -27,42 +27,45 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: Text('Vocsy Esys Share Plugin Sample'),
         ),
-        body: Container(
-            padding: const EdgeInsets.all(20.0),
-            child: ListView(
+        body: Center(
+          child: IntrinsicWidth(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                MaterialButton(
+                ElevatedButton(
                   child: Text('Share text'),
                   onPressed: () async => await _shareText(),
                 ),
-                MaterialButton(
+                ElevatedButton(
                   child: Text('Share image'),
                   onPressed: () async => await _shareImage(),
                 ),
-                MaterialButton(
+                ElevatedButton(
                   child: Text('Share images'),
                   onPressed: () async => await _shareImages(),
                 ),
-                MaterialButton(
+                ElevatedButton(
                   child: Text('Share CSV'),
                   onPressed: () async => await _shareCSV(),
                 ),
-                MaterialButton(
+                ElevatedButton(
                   child: Text('Share mixed'),
                   onPressed: () async => await _shareMixed(),
                 ),
-                MaterialButton(
+                ElevatedButton(
                   child: Text('Share image from url'),
                   onPressed: () async => await _shareImageFromUrl(),
                 ),
               ],
-            )));
+            ),
+          ),
+        ));
   }
 
   Future<void> _shareText() async {
     try {
-      Share.text('my text title',
-          'This is my text to share with other applications.', 'text/plain');
+      VocsyShare.text('my text title', 'This is my text to share with other applications.', 'text/plain');
     } catch (e) {
       print('error: $e');
     }
@@ -71,9 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> _shareImage() async {
     try {
       final ByteData bytes = await rootBundle.load('assets/image1.png');
-      await Share.file(
-          'esys image', 'esys.png', bytes.buffer.asUint8List(), 'image/png',
-          text: 'My optional text.');
+      await VocsyShare.file('esys image', 'esys.png', bytes.buffer.asUint8List(), 'image/png', text: 'My optional text.');
     } catch (e) {
       print('error: $e');
     }
@@ -84,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
       final ByteData bytes1 = await rootBundle.load('assets/image1.png');
       final ByteData bytes2 = await rootBundle.load('assets/image2.png');
 
-      await Share.files(
+      await VocsyShare.files(
           'esys images',
           {
             'esys.png': bytes1.buffer.asUint8List(),
@@ -99,8 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> _shareCSV() async {
     try {
       final ByteData bytes = await rootBundle.load('assets/addresses.csv');
-      await Share.file(
-          'addresses', 'addresses.csv', bytes.buffer.asUint8List(), 'text/csv');
+      await VocsyShare.file('addresses', 'addresses.csv', bytes.buffer.asUint8List(), 'text/csv');
     } catch (e) {
       print('error: $e');
     }
@@ -112,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
       final ByteData bytes2 = await rootBundle.load('assets/image2.png');
       final ByteData bytes3 = await rootBundle.load('assets/addresses.csv');
 
-      await Share.files(
+      await VocsyShare.files(
           'esys images',
           {
             'esys.png': bytes1.buffer.asUint8List(),
@@ -128,11 +128,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> _shareImageFromUrl() async {
     try {
-      var request = await HttpClient().getUrl(Uri.parse(
-          'https://shop.esys.eu/media/image/6f/8f/af/amlog_transport-berwachung.jpg'));
+      var request =
+          await HttpClient().getUrl(Uri.parse('https://cdn.shopware.store/r/4/9/Q2AEt/thumbnail/5d/d6/aa/1612969110/leiterplatte_800x800.png'));
       var response = await request.close();
       Uint8List bytes = await consolidateHttpClientResponseBytes(response);
-      await Share.file('ESYS AMLOG', 'amlog.jpg', bytes, 'image/jpg');
+      await VocsyShare.file('ESYS AMLOG', 'amlog.jpg', bytes, 'image/jpg');
     } catch (e) {
       print('error: $e');
     }
