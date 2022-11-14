@@ -45,26 +45,26 @@ Instead, if you have already a non-swift project, you can check this issue to so
 
 ## Usage
 
-Import:
++ Import Package:
 
 ```dart
 import 'package:vocsy_esys_flutter_share/vocsy_esys_flutter_share.dart';
 ```
 
-Share text:
++ Share Simple text:
 
 ```dart
 Share.text('my text title', 'This is my text to share with other applications.', 'text/plain');
 ```
 
-Share file:
++ Share Image With Text:
 
 ```dart
 final ByteData bytes = await rootBundle.load('assets/image1.png');
 await Share.file('esys image', 'esys.png', bytes.buffer.asUint8List(), 'image/png', text: 'My optional text.');
 ```
 
-Share files:
++ Share Multiple Files:
 
 ```dart
 final ByteData bytes1 = await rootBundle.load('assets/image1.png');
@@ -82,7 +82,7 @@ await Share.files(
     text: 'My optional text.');
 ```
 
-Share file from url:
++ Share file from url:
 
 ```dart
 var request = await HttpClient().getUrl(Uri.parse('https://shop.esys.eu/media/image/6f/8f/af/amlog_transport-berwachung.jpg'));

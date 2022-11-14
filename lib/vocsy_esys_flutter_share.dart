@@ -39,7 +39,6 @@ class VocsyShare {
       final file = await new File('${tempDir.path}/${entry.key}').create();
       await file.writeAsBytes(entry.value);
     }
-
     _channel.invokeMethod('files', argsMap);
   }
 }
