@@ -51,6 +51,16 @@ problem: [Friction adding swift plugin to objective-c project](https://github.co
 | Share Image From Url | ✅ | ✅ |
 
 
+## Images
+
+<a href="#screenshots">
+  <img src="https://raw.githubusercontent.com/kaushikgodhani/vocsy_esys_flutter_share/main/screenshot/S1.jpg" width="200px">
+</a>&nbsp;&nbsp;
+
+<a href="#screenshots">
+  <img src="https://raw.githubusercontent.com/kaushikgodhani/vocsy_esys_flutter_share/main/screenshot/S2.jpg" width="200px">
+</a>&nbsp;&nbsp;
+
 ## Usage
 
 + Import Package:
@@ -71,29 +81,9 @@ Share.text('my text title', 'This is my text to share with other applications.',
 ```dart
 
 final ByteData bytes = await
-rootBundle.load('
-assets/image1.png
-'
-);
-await
-Share.file('
-esys image
-'
-,
-'
-esys.png
-'
-,
-bytes.buffer.asUint8List()
-,
-'
-image/png
-'
-,
-text: '
-My optional text.
-'
-);
+rootBundle.load('assets/image1.png');
+awaitShare.file('esys image','esys.png',bytes.buffer.asUint8List(),'image/png',
+text: 'My optional text.');
 ```
 
 + Share Multiple Files:
@@ -101,39 +91,23 @@ My optional text.
 ```dart
 
 final ByteData bytes1 = await
-rootBundle.load('
-assets/image1.png
-'
-);
+rootBundle.load('assets/image1.png');
 
 final ByteData bytes2 = await
-rootBundle.load('
-assets/image2.png
-'
-);
+rootBundle.load('assets/image2.png');
 
 final ByteData bytes3 = await
-rootBundle.load('
-assets/addresses.csv
-'
-);
+rootBundle.load('assets/addresses.csv');
 
 await
-Share.files(
-'esys images',
+Share.files('esys images',
 {
 'esys.png': bytes1.buffer.asUint8List(),
 'bluedan.png': bytes2.buffer.asUint8List(),
 'addresses.csv': bytes3.buffer.asUint8List(),
 },
-'
-*/*
-'
-,
-text: '
-My optional text.
-'
-);
+'*/*',
+text: 'My optional text.');
 ```
 
 + Share file from url:
@@ -141,15 +115,7 @@ My optional text.
 ```dart
 
 var request = await
-HttpClient
-(
-).getUrl
-(
-Uri.parse('
-https://shop.esys.eu/media/image/6f/8f/af/amlog_transport-berwachung.jpg
-'
-)
-);
+HttpClient().getUrl(Uri.parse('https://shop.esys.eu/media/image/6f/8f/af/amlog_transport-berwachung.jpg'));
 
 var response = await
 request.close();
@@ -158,18 +124,7 @@ Uint8List bytes = await
 
 consolidateHttpClientResponseBytes(response);
 await
-Share.file('
-ESYS AMLOG
-'
-,
-'
-amlog.jpg
-'
-,
-bytes, '
-image/jpg
-'
-);
+Share.file('ESYS AMLOG','amlog.jpg',bytes, 'image/jpg');
 ```
 
 Check out the example app in the Repository for further information.
