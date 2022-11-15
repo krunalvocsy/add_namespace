@@ -72,7 +72,7 @@ import 'package:vocsy_esys_flutter_share/vocsy_esys_flutter_share.dart';
 + Share Simple text:
 
 ```dart
-Share.text('my text title', 'This is my text to share with other applications.', 'text/plain'
+VocsyShare.text('my text title', 'This is my text to share with other applications.', 'text/plain'
 );
 ```
 
@@ -82,7 +82,7 @@ Share.text('my text title', 'This is my text to share with other applications.',
 
 final ByteData bytes = await
 rootBundle.load('assets/image1.png');
-awaitShare.file('esys image','esys.png',bytes.buffer.asUint8List(),'image/png',
+await VocsyShare.file('esys image','esys.png',bytes.buffer.asUint8List(),'image/png',
 text: 'My optional text.');
 ```
 
@@ -100,7 +100,7 @@ final ByteData bytes3 = await
 rootBundle.load('assets/addresses.csv');
 
 await
-Share.files('esys images',
+VocsyShare.files('esys images',
 {
 'esys.png': bytes1.buffer.asUint8List(),
 'bluedan.png': bytes2.buffer.asUint8List(),
@@ -124,7 +124,7 @@ Uint8List bytes = await
 
 consolidateHttpClientResponseBytes(response);
 await
-Share.file('ESYS AMLOG','amlog.jpg',bytes, 'image/jpg');
+VocsyShare.file('ESYS AMLOG','amlog.jpg',bytes, 'image/jpg');
 ```
 
 Check out the example app in the Repository for further information.
