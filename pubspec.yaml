@@ -5,13 +5,13 @@ repository: https://github.com/kaushikgodhani/vocsy_esys_flutter_share
 homepage: https://github.com/kaushikgodhani/vocsy_esys_flutter_share
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
-  flutter: ">=1.17.0"
+  sdk: '>=2.17.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  path_provider: ">=2.0.3 <3.0.0"
+  path_provider: ^2.1.5
+#  cupertino_icons:
 
 flutter:
   plugin:
