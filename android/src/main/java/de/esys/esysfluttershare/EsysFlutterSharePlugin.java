@@ -18,7 +18,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
-import io.flutter.plugin.common.PluginRegistry.Registrar;
+//import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 /**
  * EsysFlutterSharePlugin
@@ -35,12 +35,12 @@ public class EsysFlutterSharePlugin implements FlutterPlugin, MethodCallHandler 
     /**
      * Plugin registration.
      */
-    @SuppressWarnings("deprecation")
-    public static void registerWith(Registrar registrar) {
-
-        final EsysFlutterSharePlugin instance = new EsysFlutterSharePlugin();
-        instance.onAttachedToEngine(registrar.context(), registrar.messenger());
-    }
+//    @SuppressWarnings("deprecation")
+//    public static void registerWith(Registrar registrar) {
+//
+//        final EsysFlutterSharePlugin instance = new EsysFlutterSharePlugin();
+//        instance.onAttachedToEngine(registrar.context(), registrar.messenger());
+//    }
 
     @Override
     public void onMethodCall(MethodCall call, Result result) {
